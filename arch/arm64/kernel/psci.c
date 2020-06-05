@@ -102,7 +102,7 @@ static int cpu_psci_cpu_kill(unsigned int cpu)
 		err = psci_ops.affinity_info(cpu_logical_map(cpu), 0);
 		if (err == PSCI_0_2_AFFINITY_LEVEL_OFF) {
 			pr_debug("CPU%d killed (polled %d ms)\n", cpu,
-				 jiffies_to_msecs(jiffies - start));
+				jiffies_to_msecs(jiffies - start));
 			return 0;
 		}
 
@@ -130,4 +130,3 @@ const struct cpu_operations cpu_psci_ops = {
 	.cpu_kill	= cpu_psci_cpu_kill,
 #endif
 };
-
